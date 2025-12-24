@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://crjhgpxqu8k51"]
+
+[ext_resource type="Theme" uid="uid://8vx0b5t8hnln" path="res://Dark theme.tres" id="1_jd0s3"]
+[ext_resource type="Script" uid="uid://bp8304s4jdrvd" path="res://Scripts/Log List Window/log_list_window.gd" id="2_77n14"]
+[ext_resource type="Script" uid="uid://bx60ttj6cr13b" path="res://Scripts/Log List Window/log_list.gd" id="3_wyvsc"]
+[ext_resource type="PackedScene" uid="uid://dx0p5aakyf7wj" path="res://Scenes/Log List Window/context_menu.tscn" id="4_8a64n"]
+[ext_resource type="Texture2D" uid="uid://bt2hqcq0pmdhb" path="res://icons/arrow-left.svg" id="5_1rs6f"]
+[ext_resource type="PackedScene" uid="uid://4vxbt76gd3rn" path="res://Scenes/notification.tscn" id="5_8ugkl"]
+[ext_resource type="Texture2D" uid="uid://37efu7rryq8b" path="res://icons/refresh.svg" id="5_a4a3p"]
+
+[node name="LogListWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme = ExtResource("1_jd0s3")
+script = ExtResource("2_77n14")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="NoLogsLabel" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "No logs found!"
+horizontal_alignment = 1
+
+[node name="LogList" type="ItemList" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+auto_width = true
+script = ExtResource("3_wyvsc")
+
+[node name="ContextMenu" parent="VBoxContainer/LogList" instance=ExtResource("4_8a64n")]
+visible = false
+layout_mode = 0
+
+[node name="RefreshButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("5_a4a3p")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+offset_right = 56.0
+offset_bottom = 48.0
+icon = ExtResource("5_1rs6f")
+
+[node name="FilePathCopiedNotification" parent="." instance=ExtResource("5_8ugkl")]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_right = 95.0
+offset_bottom = 34.0
+grow_horizontal = 2
+text = "File path copied!"
+
+[node name="FolderPathCopiedNotification" parent="." instance=ExtResource("5_8ugkl")]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.5
+offset_right = 111.5
+offset_bottom = 34.0
+grow_horizontal = 2
+text = "Folder path copied!"
+
+[node name="OpenWithDialog" type="FileDialog" parent="."]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.exe;Executables;application/vnd.microsoft.portable-executable")
+use_native_dialog = true

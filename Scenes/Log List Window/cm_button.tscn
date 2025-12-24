@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://yb2ommqnecg0"]
+
+[ext_resource type="Script" uid="uid://cx3hlp58yo74p" path="res://Scripts/Log List Window/cm_button.gd" id="1_ywu1m"]
+
+[node name="CMButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+icon_alignment = 2
+expand_icon = true
+script = ExtResource("1_ywu1m")

@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://chtqvt5y0sk2m"]
+
+[ext_resource type="Theme" uid="uid://8vx0b5t8hnln" path="res://Dark theme.tres" id="1_7cscx"]
+[ext_resource type="Script" uid="uid://bftdhbfwtxxwu" path="res://Scripts/selection_window.gd" id="2_0wwgy"]
+
+[node name="SelectionWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7cscx")
+script = ExtResource("2_0wwgy")
+
+[node name="LocateDialog" type="FileDialog" parent="."]
+oversampling_override = 1.0
+title = "Open a Directory"
+file_mode = 2
+display_mode = 1
+access = 2
+use_native_dialog = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -74.0
+offset_right = 540.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="GamePathLabel" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+
+[node name="LocateGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Locate game"
+
+[node name="ViewLogsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+text = "View logs"

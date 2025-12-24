@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4vxbt76gd3rn"]
+
+[ext_resource type="Script" uid="uid://b5lg2lxjlf8ct" path="res://Scripts/notification.gd" id="1_0gtv2"]
+
+[node name="Notification" type="Label"]
+offset_right = 1.0
+offset_bottom = 23.0
+script = ExtResource("1_0gtv2")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cehvhk1eq6h25"]
+
+[ext_resource type="Theme" uid="uid://8vx0b5t8hnln" path="res://Dark theme.tres" id="1_23hoq"]
+[ext_resource type="PackedScene" uid="uid://chtqvt5y0sk2m" path="res://Scenes/selection_window.tscn" id="2_6t6yy"]
+[ext_resource type="Script" uid="uid://c550gnydu4nx2" path="res://Scripts/main_window.gd" id="2_bet41"]
+[ext_resource type="PackedScene" uid="uid://crjhgpxqu8k51" path="res://Scenes/Log List Window/log_list_window.tscn" id="3_w45st"]
+[ext_resource type="PackedScene" uid="uid://g2ov5bki20t6" path="res://Scenes/settings_window.tscn" id="4_0s767"]
+[ext_resource type="PackedScene" uid="uid://4rcwl7cl68lo" path="res://Scenes/license_window.tscn" id="5_kglov"]
+[ext_resource type="Texture2D" uid="uid://ctg33n3ox2fyc" path="res://icons/cog.svg" id="5_qdbfq"]
+
+[node name="MainWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_23hoq")
+script = ExtResource("2_bet41")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09019608, 0.09019608, 0.09019608, 1)
+
+[node name="SettingsWindow" parent="." instance=ExtResource("4_0s767")]
+visible = false
+layout_mode = 1
+
+[node name="LicenseWindow" parent="." instance=ExtResource("5_kglov")]
+visible = false
+layout_mode = 1
+
+[node name="SelectionWindow" parent="." instance=ExtResource("2_6t6yy")]
+layout_mode = 1
+
+[node name="LogListWindow" parent="." instance=ExtResource("3_w45st")]
+visible = false
+layout_mode = 1
+
+[node name="ShowSettingsButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_qdbfq")

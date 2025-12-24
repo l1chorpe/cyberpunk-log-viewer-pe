@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://g2ov5bki20t6"]
+
+[ext_resource type="Script" uid="uid://dkmqudrgj1dmq" path="res://Scripts/settings_window.gd" id="1_ben5s"]
+[ext_resource type="Theme" uid="uid://8vx0b5t8hnln" path="res://Dark theme.tres" id="1_btldx"]
+[ext_resource type="Texture2D" uid="uid://bx0cwugsotwnu" path="res://icons/close.svg" id="3_btldx"]
+
+[node name="SettingsWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_btldx")
+script = ExtResource("1_ben5s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -33.0
+offset_right = 90.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullSearchToggle" type="CheckBox" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Full search makes the app search through every folder for logs. Deactivating it makes it search through much fewer folders, at the cost of potentially missing log files, but gaining in performance.
+
+On decent hardware, this should be left on."
+button_pressed = true
+text = "Full search"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ShowIconLicenseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Show icon license"
+
+[node name="ShowGodotLicenseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Show Godot license"
+
+[node name="AppVersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -34.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CloseButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_btldx")
