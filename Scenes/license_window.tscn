@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://4rcwl7cl68lo"]
+[gd_scene load_steps=7 format=3 uid="uid://4rcwl7cl68lo"]
 
 [ext_resource type="Script" uid="uid://d3ni41gsd1q6m" path="res://Scripts/license_window.gd" id="1_c5s3e"]
 [ext_resource type="Theme" uid="uid://8vx0b5t8hnln" path="res://Dark theme.tres" id="1_eh63x"]
-[ext_resource type="Texture2D" uid="uid://bt2hqcq0pmdhb" path="res://icons/arrow-left.svg" id="2_ipvo1"]
+[ext_resource type="Texture2D" uid="uid://bt2hqcq0pmdhb" path="res://icons/arrow-left/arrow-left-normal.svg" id="2_ipvo1"]
+[ext_resource type="Texture2D" uid="uid://bkidhla8nhxmj" path="res://icons/arrow-left/arrow-left-pressed.svg" id="4_uaxie"]
+[ext_resource type="Texture2D" uid="uid://l4s50nf3kv54" path="res://icons/arrow-left/arrow-left-hover.svg" id="5_c2h44"]
 
 [sub_resource type="SystemFont" id="SystemFont_eh63x"]
 font_names = PackedStringArray("Monospace")
@@ -34,3 +36,5 @@ layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
 texture_normal = ExtResource("2_ipvo1")
+texture_pressed = ExtResource("4_uaxie")
+texture_hover = ExtResource("5_c2h44")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://g2ov5bki20t6"]
+[gd_scene load_steps=6 format=3 uid="uid://g2ov5bki20t6"]
 
 [ext_resource type="Script" uid="uid://dkmqudrgj1dmq" path="res://Scripts/settings_window.gd" id="1_ben5s"]
 [ext_resource type="Theme" uid="uid://8vx0b5t8hnln" path="res://Dark theme.tres" id="1_btldx"]
-[ext_resource type="Texture2D" uid="uid://bx0cwugsotwnu" path="res://icons/close.svg" id="3_btldx"]
+[ext_resource type="Texture2D" uid="uid://bx0cwugsotwnu" path="res://icons/close/close-normal.svg" id="3_btldx"]
+[ext_resource type="Texture2D" uid="uid://bh83jliw0y5ir" path="res://icons/close/close-pressed.svg" id="4_as82d"]
+[ext_resource type="Texture2D" uid="uid://nhjg31unfr30" path="res://icons/close/close-hover.svg" id="5_7xu77"]
 
 [node name="SettingsWindow" type="Control"]
 layout_mode = 3
@@ -70,3 +72,5 @@ offset_left = -48.0
 offset_bottom = 48.0
 grow_horizontal = 0
 texture_normal = ExtResource("3_btldx")
+texture_pressed = ExtResource("4_as82d")
+texture_hover = ExtResource("5_7xu77")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cehvhk1eq6h25"]
+[gd_scene load_steps=10 format=3 uid="uid://cehvhk1eq6h25"]
 
 [ext_resource type="Theme" uid="uid://8vx0b5t8hnln" path="res://Dark theme.tres" id="1_23hoq"]
 [ext_resource type="PackedScene" uid="uid://chtqvt5y0sk2m" path="res://Scenes/selection_window.tscn" id="2_6t6yy"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://crjhgpxqu8k51" path="res://Scenes/Log List Window/log_list_window.tscn" id="3_w45st"]
 [ext_resource type="PackedScene" uid="uid://g2ov5bki20t6" path="res://Scenes/settings_window.tscn" id="4_0s767"]
 [ext_resource type="PackedScene" uid="uid://4rcwl7cl68lo" path="res://Scenes/license_window.tscn" id="5_kglov"]
-[ext_resource type="Texture2D" uid="uid://ctg33n3ox2fyc" path="res://icons/cog.svg" id="5_qdbfq"]
+[ext_resource type="Texture2D" uid="uid://ctg33n3ox2fyc" path="res://icons/cog/cog-normal.svg" id="5_qdbfq"]
+[ext_resource type="Texture2D" uid="uid://cj0jqgankwe31" path="res://icons/cog/cog-pressed.svg" id="8_t2hsg"]
+[ext_resource type="Texture2D" uid="uid://14bej3ws2yw6" path="res://icons/cog/cog-hover.svg" id="9_px4vs"]
 
 [node name="MainWindow" type="Control"]
 layout_mode = 3
@@ -52,3 +54,5 @@ offset_left = -48.0
 offset_bottom = 48.0
 grow_horizontal = 0
 texture_normal = ExtResource("5_qdbfq")
+texture_pressed = ExtResource("8_t2hsg")
+texture_hover = ExtResource("9_px4vs")
