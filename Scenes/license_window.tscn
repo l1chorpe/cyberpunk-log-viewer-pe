@@ -20,21 +20,32 @@ grow_vertical = 2
 theme = ExtResource("1_eh63x")
 script = ExtResource("1_c5s3e")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-focus_mode = 2
-theme_override_fonts/normal_font = SubResource("SystemFont_eh63x")
-selection_enabled = true
 
-[node name="BackButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_right = 48.0
-offset_bottom = 48.0
+[node name="BackButton" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 texture_normal = ExtResource("2_ipvo1")
 texture_pressed = ExtResource("4_uaxie")
 texture_hover = ExtResource("5_c2h44")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="LicenseText" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_eh63x")
+selection_enabled = true
