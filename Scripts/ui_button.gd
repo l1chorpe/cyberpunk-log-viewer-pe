@@ -7,12 +7,6 @@ enum Type { CLOSE, BACK, REFRESH, SETTINGS }
         type = t
         _apply_svgs()
 
-@export
-var scaling := 2.0:
-    set(s):
-        scaling = s
-        _apply_svgs()
-
 # Holds SVGs as byte arrays to avoid unnecessary file loading.
 static var _svg_data_normal: Array[PackedByteArray]
 static var _svg_data_hover: Array[PackedByteArray]
@@ -27,6 +21,9 @@ static func _static_init() -> void:
 
 func _ready() -> void:
     _apply_svgs()
+
+    # Reflect changes to the icon size
+    Settings.icon_size_changed.connect(_apply_svgs)
 
 #region SVG variants loading
 
@@ -62,12 +59,12 @@ static func _load_pressed_svgs() -> void:
 ## Applies the chosen SVG's variants to the corresponding texture variables.
 func _apply_svgs() -> void:
     var image := Image.new()
-    image.load_svg_from_buffer(_svg_data_normal[type], scaling)
+    image.load_svg_from_buffer(_svg_data_normal[type], Settings.icon_size)
     texture_normal = ImageTexture.create_from_image(image)
 
-    image.load_svg_from_buffer(_svg_data_hover[type], scaling)
+    image.load_svg_from_buffer(_svg_data_hover[type], Settings.icon_size)
     texture_hover = ImageTexture.create_from_image(image)
 
-    image.load_svg_from_buffer(_svg_data_pressed[type], scaling)
+    image.load_svg_from_buffer(_svg_data_pressed[type], Settings.icon_size)
     texture_pressed = ImageTexture.create_from_image(image)
     
