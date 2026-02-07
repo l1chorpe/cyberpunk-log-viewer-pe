@@ -40,23 +40,45 @@ On decent hardware, this should be left on."
 button_pressed = true
 text = "Full search"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=497646335]
+[node name="IconSizeContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=497646335]
 layout_mode = 2
 
-[node name="IconSizeLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=419157056]
+[node name="IconSizeLabel" type="Label" parent="VBoxContainer/IconSizeContainer" unique_id=419157056]
+unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 0
 text = "Icon size"
 
-[node name="IconSizeSlider" type="HSlider" parent="VBoxContainer/HBoxContainer" unique_id=1546703112]
+[node name="IconSizeSlider" type="HSlider" parent="VBoxContainer/IconSizeContainer" unique_id=1546703112]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 10
 max_value = 5.0
 step = 0.1
 value = 2.0
 tick_count = 6
 ticks_position = 3
+
+[node name="FontSizeContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1924292681]
+layout_mode = 2
+
+[node name="FontSizeLabel" type="Label" parent="VBoxContainer/FontSizeContainer" unique_id=264987444]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+text = "Font size"
+
+[node name="FontSizeSpinBox" type="SpinBox" parent="VBoxContainer/FontSizeContainer" unique_id=768641870]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 5.0
+max_value = 40.0
+value = 24.0
+rounded = true
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=309572182]
 layout_mode = 2
