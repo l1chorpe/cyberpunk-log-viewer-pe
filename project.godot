@@ -34,3 +34,7 @@ window/subwindows/embed_subwindows=false
 [dotnet]
 
 project/assembly_name="Cyberpunk Log Viewer (Preem Edition)"
+
+[gui]
+
+theme/custom="uid://8vx0b5t8hnln"

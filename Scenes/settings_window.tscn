@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://g2ov5bki20t6"]
 
 [ext_resource type="Script" uid="uid://dkmqudrgj1dmq" path="res://Scripts/settings_window.gd" id="1_ben5s"]
-[ext_resource type="Theme" uid="uid://8vx0b5t8hnln" path="res://Dark theme.tres" id="1_btldx"]
 [ext_resource type="Texture2D" uid="uid://bx0cwugsotwnu" path="res://icons/close/close-normal.svg" id="3_btldx"]
 [ext_resource type="Texture2D" uid="uid://bh83jliw0y5ir" path="res://icons/close/close-pressed.svg" id="4_as82d"]
 [ext_resource type="Texture2D" uid="uid://nhjg31unfr30" path="res://icons/close/close-hover.svg" id="5_7xu77"]
@@ -14,7 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_btldx")
 script = ExtResource("1_ben5s")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1716095042]

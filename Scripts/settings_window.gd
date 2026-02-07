@@ -18,7 +18,8 @@ func _ready() -> void:
     %IconSizeLabel.gui_input.connect(_reset_icon_size_on_double_click)
 
     %FontSizeSpinBox.value_changed.connect(func(value):
-        theme.default_font_size = value
+        ThemeDB.get_project_theme().default_font_size = value
+        
     )
     %FontSizeLabel.gui_input.connect(_reset_font_size_on_double_click)
 
