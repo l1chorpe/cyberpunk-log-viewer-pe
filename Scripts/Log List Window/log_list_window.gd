@@ -19,7 +19,7 @@ func _ready() -> void:
     %LogList.get_context_menu().request_folder_path_copy.connect(_send_folder_path_copied_notif)
     %LogList.get_context_menu().request_file_path_copy.connect(_send_file_path_copied_notif)
 
-    $OpenWithDialog.file_selected.connect(_open_with_accepted)
+    $OpenWithDialog.file_selected.connect(_open_with)
     $OpenWithDialog.canceled.connect(_open_with_dismissed)
 
 ## Handles displaying the log list.
@@ -37,6 +37,12 @@ func display() -> void:
 #region Log operations
 
 func _open_log() -> void:
+    # Open externally if set to do so
+    if Settings.always_ext_edit:
+        _open_with(Settings.ext_edit_path)
+        return
+    
+    # Open with internal editor
     var last_log: Log = %LogList.get_last_selected_log()
     add_child(LogViewer.instantiate().with(
             last_log.filename,
@@ -55,7 +61,7 @@ func _show_open_with_dialog() -> void:
     $OpenWithDialog.show()
 
 ## Opens a log with the selected program and hides the context menu.
-func _open_with_accepted(exe_path: String) -> void:
+func _open_with(exe_path: String) -> void:
     OS.create_process(
             exe_path,
             [%LogList.get_last_selected_log().full_path]

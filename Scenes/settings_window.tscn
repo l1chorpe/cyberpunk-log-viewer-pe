@@ -61,6 +61,7 @@ ticks_position = 3
 
 [node name="FontSizeContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1924292681]
 layout_mode = 2
+alignment = 1
 
 [node name="FontSizeLabel" type="Label" parent="VBoxContainer/FontSizeContainer" unique_id=264987444]
 unique_name_in_owner = true
@@ -77,6 +78,42 @@ min_value = 5.0
 max_value = 40.0
 value = 24.0
 rounded = true
+
+[node name="ExtEditToggle" type="CheckBox" parent="VBoxContainer" unique_id=2087237165]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "When on, double-clicking always opens the external editor."
+text = "Always use external editor"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=709473353]
+layout_mode = 2
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer" unique_id=786733567]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="ExtEditPathLabel" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer" unique_id=133759336]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+clip_text = true
+
+[node name="SelectEditorButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1672046634]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Select editor"
+
+[node name="ExtEditPathPicker" type="FileDialog" parent="VBoxContainer/HBoxContainer" unique_id=1160037061]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open a File"
+ok_button_text = "Select"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.exe;Executables;application/vnd.microsoft.portable-executable")
+use_native_dialog = true
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=309572182]
 layout_mode = 2
