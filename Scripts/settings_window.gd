@@ -58,6 +58,8 @@ func _fetch_settings() -> void:
     %FontSizeSpinBox.value = Settings.font_size
     %ExtEditToggle.button_pressed = Settings.always_ext_edit
     %ExtEditPathLabel.text = Settings.ext_edit_path
+    if Settings.ext_edit_path != "":
+        %ExtEditPathLabel.get_parent().show()
 
 #endregion
 
