@@ -1,9 +1,19 @@
 [gd_scene format=3 uid="uid://dqfcxhd8ley3n"]
 
 [ext_resource type="Script" uid="uid://d0m821x0r74xf" path="res://Scripts/Log List Window/log_viewer.gd" id="2_i511d"]
+[ext_resource type="Script" uid="uid://ci7atrv7eemqg" path="res://Scripts/Log List Window/search_input.gd" id="2_t342t"]
+[ext_resource type="PackedScene" uid="uid://4vxbt76gd3rn" path="res://Scenes/notification.tscn" id="3_4wvql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wvql"]
+bg_color = Color(0.34108615, 0.34108615, 0.34108615, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [node name="LogViewer" type="Window" unique_id=1850353282]
 oversampling_override = 1.0
+position = Vector2i(0, 36)
 size = Vector2i(1080, 720)
 script = ExtResource("2_i511d")
 
@@ -16,11 +26,68 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.09019608, 0.09019608, 0.09019608, 1)
 
-[node name="LogContents" type="RichTextLabel" parent="." unique_id=1767167284]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2116095944]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-focus_mode = 2
-selection_enabled = true
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1306215968]
+layout_mode = 2
+
+[node name="SearchBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1214421593]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="SearchInput" type="LineEdit" parent="MarginContainer/VBoxContainer/SearchBar" unique_id=39087386]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search term"
+keep_editing_on_text_submit = true
+caret_blink = true
+script = ExtResource("2_t342t")
+
+[node name="MatchCaseToggle" type="CheckBox" parent="MarginContainer/VBoxContainer/SearchBar" unique_id=556668687]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Matches the case of the search term.
+
+When off, \"term\" matches both \"Term\" and \"term\".
+\"When on, only \"term\" matches."
+text = "Match case"
+
+[node name="MatchWordsToggle" type="CheckBox" parent="MarginContainer/VBoxContainer/SearchBar" unique_id=530059608]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Matches whole words instead of characters.
+
+When off, \"term\" matches both \"term\" and \"terminal\".
+When on, only \"term\" matches."
+text = "Match words"
+
+[node name="SearchButton" type="Button" parent="MarginContainer/VBoxContainer/SearchBar" unique_id=819564789]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Search"
+
+[node name="LogContents" type="TextEdit" parent="MarginContainer/VBoxContainer" unique_id=1753842796]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+editable = false
+
+[node name="NoMatchNotification" parent="MarginContainer" unique_id=1880049778 instance=ExtResource("3_4wvql")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_4wvql")
+text = "No matches found!"
+horizontal_alignment = 1
