@@ -11,7 +11,7 @@ func _ready() -> void:
 
     # Load settings
     _folder_selected(Settings.game_folder)
-    $LocateDialog.current_path = Settings.game_folder
+    $LocateDialog.current_dir = Settings.game_folder
 
 ## Shows the dialog to locate the game folder.
 func _locate_button_pressed() -> void:
