@@ -23,7 +23,9 @@ func _ready() -> void:
     _apply_svgs()
 
     # Reflect changes to the icon size
-    Settings.icon_size_changed.connect(_apply_svgs)
+    # Checking the hint avoids irrelevant errors in the editor
+    if not Engine.is_editor_hint():
+        Settings.icon_size_changed.connect(_apply_svgs)
 
 #region SVG variants loading
 
@@ -59,12 +61,16 @@ static func _load_pressed_svgs() -> void:
 ## Applies the chosen SVG's variants to the corresponding texture variables.
 func _apply_svgs() -> void:
     var image := Image.new()
-    image.load_svg_from_buffer(_svg_data_normal[type], Settings.icon_size)
+
+    # Checking the hint avoids irrelevant errors in the editor
+    var icon_size := Settings.DEFAULT_ICON_SIZE if Engine.is_editor_hint() else Settings.icon_size
+    
+    image.load_svg_from_buffer(_svg_data_normal[type], icon_size)
     texture_normal = ImageTexture.create_from_image(image)
 
-    image.load_svg_from_buffer(_svg_data_hover[type], Settings.icon_size)
+    image.load_svg_from_buffer(_svg_data_hover[type], icon_size)
     texture_hover = ImageTexture.create_from_image(image)
 
-    image.load_svg_from_buffer(_svg_data_pressed[type], Settings.icon_size)
+    image.load_svg_from_buffer(_svg_data_pressed[type], icon_size)
     texture_pressed = ImageTexture.create_from_image(image)
     
