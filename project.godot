@@ -27,6 +27,10 @@ config/icon="uid://ccq5ok6slhitg"
 
 Settings="*uid://b73dq2mauj6c4"
 
+[debug]
+
+file_logging/enable_file_logging.pc=false
+
 [display]
 
 window/size/viewport_width=1080
@@ -40,3 +44,8 @@ project/assembly_name="Cyberpunk Log Viewer (Preem Edition)"
 [gui]
 
 theme/custom="uid://8vx0b5t8hnln"
+
+[rendering]
+
+rendering_device/pipeline_cache/enable=false
+shader_compiler/shader_cache/enabled=false
